@@ -16,25 +16,45 @@ async function compressImage(filePath) {
   }
 
   try {
+    const oldSize = fs.statSync(filePath).size;
+    
+    // Check if already WebP and under 100KB
+    if (ext === '.webp' && oldSize <= targetSize) {
+      console.log(`✓ ${filename} (already under 100KB - no changes needed)`);
+      return;
+    }
+
     let quality = 80;
     let buffer;
-    let outputPath = filePath.replace(ext, '.webp');
+    let outputPath = ext === '.webp' ? filePath : filePath.replace(ext, '.webp');
+    let metadata;
+
+    try {
+      metadata = await sharp(filePath).metadata();
+    } catch (e) {
+      console.log(`⊘ Skipping ${filename} (unsupported format)`);
+      return;
+    }
 
     // Try different quality levels to get under 100KB
     while (quality > 10) {
-      buffer = await sharp(filePath)
-        .webp({ quality })
-        .toBuffer();
+      try {
+        buffer = await sharp(filePath)
+          .webp({ quality })
+          .toBuffer();
 
-      if (buffer.length <= targetSize) {
-        break;
+        if (buffer.length <= targetSize) {
+          break;
+        }
+      } catch (e) {
+        quality -= 5;
+        continue;
       }
       quality -= 5;
     }
 
     // If still over 100KB, resize image
-    if (buffer.length > targetSize) {
-      const metadata = await sharp(filePath).metadata();
+    if (buffer && buffer.length > targetSize) {
       const scaleFactor = Math.sqrt(targetSize / buffer.length);
       const newWidth = Math.floor(metadata.width * scaleFactor);
 
@@ -44,19 +64,20 @@ async function compressImage(filePath) {
         .toBuffer();
     }
 
-    // Write the new file
-    fs.writeFileSync(outputPath, buffer);
-    const oldSize = fs.statSync(filePath).size;
-    const newSize = buffer.length;
-    const reduction = Math.round((1 - newSize / oldSize) * 100);
+    if (buffer) {
+      // Write the new file
+      fs.writeFileSync(outputPath, buffer);
+      const newSize = buffer.length;
+      const reduction = Math.round((1 - newSize / oldSize) * 100);
 
-    console.log(`✓ ${filename} → ${path.basename(outputPath)}`);
-    console.log(`  ${(oldSize / 1024).toFixed(1)} KB → ${(newSize / 1024).toFixed(1)} KB (${reduction}% reduction)`);
+      console.log(`✓ ${filename} → ${path.basename(outputPath)}`);
+      console.log(`  ${(oldSize / 1024).toFixed(1)} KB → ${(newSize / 1024).toFixed(1)} KB (${reduction}% reduction)`);
 
-    // Delete original if it's not already a webp
-    if (ext !== '.webp') {
-      fs.unlinkSync(filePath);
-      console.log(`  Removed original`);
+      // Delete original if it's a different file
+      if (outputPath !== filePath) {
+        fs.unlinkSync(filePath);
+        console.log(`  Removed original`);
+      }
     }
   } catch (error) {
     console.error(`✗ Error processing ${filename}: ${error.message}`);
