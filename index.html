@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stackly | Global Logistics &amp; Freight Solutions</title>
+<meta name="description" content="Stackly delivers reliable ocean, air &amp; land freight, warehousing and supply-chain solutions that move your cargo across the globe — on time, every time.">
+<link rel="icon" href="images/stackly-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body data-page="home">
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">
+    <img src="images/stackly-mark.webp" alt="" width="56" height="56">
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="images/stackly-mark.webp" alt="Stackly">
+      </span>
+      <span class="brand-name">Stackly</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="services.html" class="nav-link" data-page="services">Service</a></li>
+        <li><a href="team.html" class="nav-link" data-page="team">Team</a></li>
+        <li><a href="portfolio.html" class="nav-link" data-page="portfolio">Portfolio</a></li>
+        <li><a href="resources.html" class="nav-link" data-page="resources">Cargo Guide</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-auth" id="headerAuth">
+      <a href="login.html" class="header-auth-link" id="headerAuthLink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Login</span>
+      </a>
+      <div class="header-user" id="headerUser">
+        <div class="header-user-avatar" id="headerUserAvatar">JB</div>
+        <a href="dashboard.html" class="header-user-name" id="headerUserName">Account<span>View Dashboard</span></a>
+        <button class="header-logout js-logout" type="button" aria-label="Log out">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <a href="contact.html" class="btn btn-primary header-cta">Get a Quote</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline poster="images/hero-port.webp" aria-label="Stackly logistics operations in motion">
+        <source src="images/watermarked_preview.mp4" type="video/mp4">
+        <img src="images/hero-port.webp" alt="Aerial view of a busy container port at dusk with a cargo ship docked among stacks of shipping containers" loading="eager">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <span class="hero-glyph" aria-hidden="true">
+        <img src="images/stackly-mark.webp" alt="">
+      </span>
+      <p class="hero-eyebrow reveal" data-reveal>Stackly</p>
+      <h1 class="hero-title reveal" data-reveal>LOGISTICS</h1>
+      <p class="hero-sub reveal" data-reveal>Reliable ocean, air &amp; land freight, warehousing and supply-chain solutions that move your cargo across the globe — on time, every time.</p>
+
+      <div class="hero-actions reveal" data-reveal>
+        <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+        <a href="about.html" class="btn btn-ghost">Discover More</a>
+      </div>
+
+      <div class="hero-contact-bar reveal" data-reveal>
+        <a href="tel:+12345678900" class="hero-contact-item">
+          <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span>+1 (234) 567-8900</span>
+        </a>
+        <a href="https://www.stackly.com" class="hero-contact-item" target="_blank" rel="noopener">
+          <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+          <span>www.stackly.com</span>
+        </a>
+        <a href="mailto:hello@stackly.com" class="hero-contact-item">
+          <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+          <span>hello@stackly.com</span>
+        </a>
+      </div>
+    </div>
+
+    <a href="#about-teaser" class="scroll-cue" aria-label="Scroll to next section">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ================= ABOUT TEASER ================= -->
+  <section class="section about-section" id="about-teaser">
+    <div class="container about-grid">
+      <div class="about-media reveal" data-reveal>
+        <img src="images/welcome-crane.webp" alt="Gantry cranes loading colorful shipping containers onto a cargo vessel at port" loading="lazy" class="about-img about-img--tall">
+        <img src="images/welcome-warehouse.webp" alt="Automated conveyor system moving cardboard boxes through a modern distribution warehouse" loading="lazy" class="about-img about-img--wide">
+        <span class="about-badge">
+          <strong>15+</strong>
+          <em>Years of Experience</em>
+        </span>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow reveal" data-reveal>Who We Are</p>
+        <h2 class="section-title reveal" data-reveal>WELCOME TO<br>OUR COMPANY</h2>
+        <span class="title-rule reveal" data-reveal></span>
+
+        <p class="reveal" data-reveal>Stackly is a full-service logistics partner built on three principles: precision, transparency and speed. From our first depot to a fleet spanning ocean, air and land freight, we've grown by treating every shipment — large or small — as if it were our own cargo on the line.</p>
+
+        <div class="about-stats reveal" data-reveal>
+          <div><strong data-counter="40">0</strong><span>Countries Served</span></div>
+          <div><strong data-counter="1200">0</strong><span>Fleet Vehicles</span></div>
+          <div><strong data-counter="98">0</strong><span>Client Retention %</span></div>
+        </div>
+
+        <div class="teaser-cta reveal" data-reveal>
+          <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEO SHOWCASE ================= -->
+  <section class="section motion-section" id="in-motion">
+    <div class="container">
+      <div class="section-head center reveal" data-reveal>
+        <p class="eyebrow">See Us in Motion</p>
+        <h2 class="section-title">LOGISTICS WITHOUT LIMITS</h2>
+        <span class="title-rule center"></span>
+        <p>From the port to your door, our teams keep every part of your supply chain moving.</p>
+      </div>
+
+      <div class="motion-grid">
+        <article class="motion-card reveal" data-reveal>
+          <video controls muted playsinline preload="metadata" poster="images/hero-port.webp">
+            <source src="images/watermarked_preview.mp4" type="video/mp4">
+          </video>
+          <h3>Global Freight</h3>
+        </article>
+        <article class="motion-card reveal" data-reveal>
+          <video controls muted playsinline preload="metadata" poster="images/welcome-warehouse.webp">
+            <source src="images/watermarked_preview (1).mp4" type="video/mp4">
+          </video>
+          <h3>Smart Warehousing</h3>
+        </article>
+        <article class="motion-card reveal" data-reveal>
+          <video controls muted playsinline preload="metadata" poster="images/service-sunset-ship.webp">
+            <source src="images/watermarked_preview (2).mp4" type="video/mp4">
+          </video>
+          <h3>Every Mile Covered</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="section projects-section" id="projects">
+    <div class="container projects-grid">
+      <div class="projects-media reveal" data-reveal>
+        <img src="images/project-forklift.webp" alt="Warehouse forklift lifting a pallet of goods between tall storage racks" loading="lazy" class="projects-img projects-img--a">
+        <img src="images/project-warehouse.webp" alt="High-bay automated warehouse with tall storage racks and staged pallets of inventory" loading="lazy" class="projects-img projects-img--b">
+      </div>
+
+      <div class="projects-copy">
+        <p class="eyebrow reveal" data-reveal>Proven Performance</p>
+        <h2 class="section-title reveal" data-reveal>OUR RESULTS</h2>
+        <span class="title-rule reveal" data-reveal></span>
+
+        <div class="donut-row">
+          <div class="donut reveal" data-reveal data-percent="96">
+            <svg viewBox="0 0 120 120" class="donut-svg">
+              <circle cx="60" cy="60" r="52" class="donut-track"></circle>
+              <circle cx="60" cy="60" r="52" class="donut-fill"></circle>
+            </svg>
+            <span class="donut-value">0%</span>
+            <p>On-Time Delivery</p>
+          </div>
+          <div class="donut reveal" data-reveal data-percent="88">
+            <svg viewBox="0 0 120 120" class="donut-svg">
+              <circle cx="60" cy="60" r="52" class="donut-track"></circle>
+              <circle cx="60" cy="60" r="52" class="donut-fill"></circle>
+            </svg>
+            <span class="donut-value">0%</span>
+            <p>Fleet Utilization</p>
+          </div>
+          <div class="donut reveal" data-reveal data-percent="94">
+            <svg viewBox="0 0 120 120" class="donut-svg">
+              <circle cx="60" cy="60" r="52" class="donut-track"></circle>
+              <circle cx="60" cy="60" r="52" class="donut-fill"></circle>
+            </svg>
+            <span class="donut-value">0%</span>
+            <p>Client Satisfaction</p>
+          </div>
+        </div>
+
+        <p class="reveal" data-reveal>These numbers are tracked live across every lane we run — not sampled once a quarter. Our operations team reviews on-time performance daily so small delays get caught before they become missed deadlines.</p>
+
+        <a href="portfolio.html" class="btn btn-primary reveal" data-reveal>See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES TEASER ================= -->
+  <section class="section services-section" id="services-teaser">
+    <div class="services-grid">
+      <div class="services-copy container-inline">
+        <p class="eyebrow reveal" data-reveal>What We Offer</p>
+        <h2 class="section-title reveal" data-reveal>OUR SERVICE</h2>
+        <span class="title-rule reveal" data-reveal></span>
+
+        <ul class="numbered-list">
+          <li class="reveal" data-reveal>
+            <span class="num-badge">01</span>
+            <div>
+              <h3>Ocean &amp; Air Freight Forwarding</h3>
+              <p>FCL, LCL and air charter options with consolidated bookings, customs brokerage and door-to-door delivery on every major trade lane.</p>
+            </div>
+          </li>
+          <li class="reveal" data-reveal>
+            <span class="num-badge">02</span>
+            <div>
+              <h3>Warehousing &amp; Distribution</h3>
+              <p>Bonded and climate-controlled storage with pick-pack-ship fulfillment, inventory management and same-day dispatch.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="teaser-cta reveal" data-reveal>
+          <a href="services.html" class="btn btn-primary">View All Services</a>
+        </div>
+      </div>
+
+      <div class="services-media">
+        <div class="services-media-item reveal" data-reveal><img src="images/service-sunset-ship.webp" alt="Cargo ship docked at a harbor at sunrise with port cranes silhouetted against the sky" loading="lazy"></div>
+        <div class="services-media-item reveal" data-reveal><img src="images/service-railyard.webp" alt="Intermodal rail yard at sunset with stacked shipping containers ready for transport" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLIENT PORTAL ================= -->
+  <section class="section portal-section" id="client-portal">
+    <div class="container portal-grid">
+      <div class="portal-copy">
+        <p class="eyebrow reveal" data-reveal>Client Portal</p>
+        <h2 class="section-title reveal" data-reveal>MANAGE EVERY SHIPMENT IN ONE PLACE</h2>
+        <span class="title-rule reveal" data-reveal></span>
+        <p class="reveal" data-reveal>Stackly's online portal keeps your freight information within reach. Review shipment progress, check milestones and keep your team aligned from collection through delivery.</p>
+        <ul class="portal-benefits">
+          <li class="reveal" data-reveal><span>✓</span><div><strong>Track &amp; Trace</strong><p>Search a shipment ID and view its current status, route progress and latest activity.</p></div></li>
+          <li class="reveal" data-reveal><span>✓</span><div><strong>Order Management</strong><p>Review active shipments, delivery history and the details your operations team needs.</p></div></li>
+          <li class="reveal" data-reveal><span>✓</span><div><strong>Mobile-Ready Access</strong><p>Check essential shipment information from your phone, tablet or desktop.</p></div></li>
+          <li class="reveal" data-reveal><span>✓</span><div><strong>Dedicated Support</strong><p>Get a clear next step from a real logistics specialist whenever you need one.</p></div></li>
+        </ul>
+        <div class="hero-actions reveal" data-reveal><a href="dashboard.html" class="btn btn-primary">Open Client Portal</a><a href="contact.html" class="btn btn-ghost">Create an Account</a></div>
+      </div>
+      <div class="portal-preview reveal" data-reveal>
+        <div class="portal-preview-bar"><span></span><span></span><span></span><strong>Shipment Overview</strong></div>
+        <div class="portal-preview-body">
+          <div class="portal-status"><span>Shipment TI-48213</span><b>In Transit</b></div>
+          <div class="portal-route"><div><small>Origin</small><strong>Singapore</strong></div><i></i><div><small>Destination</small><strong>Rotterdam</strong></div></div>
+          <div class="portal-progress"><span style="width:72%"></span></div>
+          <div class="portal-milestones"><p><b>✓</b> Booked <time>12 Aug</time></p><p><b>✓</b> Departed port <time>14 Aug</time></p><p class="active"><b>•</b> Arriving at hub <time>22 Aug</time></p><p><b>○</b> Final delivery <time>28 Aug</time></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TEAM TEASER ================= -->
+  <section class="section team-section" id="team-teaser">
+    <div class="container">
+      <div class="section-head center reveal" data-reveal>
+        <p class="eyebrow">The People Behind It</p>
+        <h2 class="section-title">MEET OUR TEAM</h2>
+        <span class="title-rule center"></span>
+      </div>
+
+      <div class="team-teaser-row">
+        <article class="team-card reveal" data-reveal>
+          <div class="team-photo"><img src="images/team-1.webp" alt="Portrait of Brigitte Schwartz, Operations Director, wearing a hard hat and safety vest in a warehouse" loading="lazy"></div>
+          <h3>Brigitte Schwartz</h3>
+          <p class="team-role">Operations Director</p>
+        </article>
+        <article class="team-card reveal" data-reveal>
+          <div class="team-photo"><img src="images/team-2.webp" alt="Portrait of Alfredo Torres, Fleet Manager, holding a package in a warehouse aisle" loading="lazy"></div>
+          <h3>Alfredo Torres</h3>
+          <p class="team-role">Fleet Manager</p>
+        </article>
+        <article class="team-card reveal" data-reveal>
+          <div class="team-photo"><img src="images/team-3.webp" alt="Portrait of Adora Montminy, Logistics Coordinator, carrying a box in a distribution warehouse" loading="lazy"></div>
+          <h3>Adora Montminy</h3>
+          <p class="team-role">Logistics Coordinator</p>
+        </article>
+        <article class="team-card reveal" data-reveal>
+          <div class="team-photo"><img src="images/team-4.webp" alt="Portrait of Margarita Perez, Warehouse Supervisor, reviewing inventory in a storage facility" loading="lazy"></div>
+          <h3>Margarita Perez</h3>
+          <p class="team-role">Warehouse Supervisor</p>
+        </article>
+      </div>
+
+      <div class="section-foot-cta reveal" data-reveal>
+        <a href="team.html" class="btn btn-ghost">Meet the Whole Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY STACKLY ================= -->
+  <section class="section advantage-section" id="why-stackly">
+    <div class="container">
+      <div class="section-head center reveal" data-reveal>
+        <p class="eyebrow">Built Around Your Cargo</p>
+        <h2 class="section-title">WHY COMPANIES CHOOSE STACKLY</h2>
+        <span class="title-rule center"></span>
+        <p>One accountable logistics partner, from your first quote through final delivery.</p>
+      </div>
+      <div class="advantage-grid">
+        <article class="advantage-card reveal" data-reveal><span class="num-badge">01</span><h3>Clear Shipment Visibility</h3><p>Know where your cargo is, what happens next and who to contact. We keep updates simple, timely and easy to act on.</p></article>
+        <article class="advantage-card reveal" data-reveal><span class="num-badge">02</span><h3>Flexible Route Planning</h3><p>We compare ocean, air, road and rail options to balance transit time, budget and the handling needs of your shipment.</p></article>
+        <article class="advantage-card reveal" data-reveal><span class="num-badge">03</span><h3>Hands-On Support</h3><p>Our operations team manages documents, bookings, customs coordination and delivery milestones so issues are resolved early.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES & FAQ ================= -->
+  <section class="section insight-section" id="insights">
+    <div class="container insight-grid">
+      <div>
+        <p class="eyebrow reveal" data-reveal>Industries We Support</p>
+        <h2 class="section-title reveal" data-reveal>LOGISTICS THAT FITS YOUR BUSINESS</h2>
+        <span class="title-rule reveal" data-reveal></span>
+        <p class="reveal" data-reveal>Every supply chain has different priorities. We build practical freight plans for businesses that need dependable capacity, careful handling and responsive communication.</p>
+        <div class="industry-tags reveal" data-reveal><span>Retail &amp; E-commerce</span><span>Manufacturing</span><span>Construction</span><span>Automotive</span><span>Consumer Goods</span><span>Industrial Equipment</span></div>
+        <a href="contact.html" class="btn btn-primary reveal" data-reveal>Talk to a Logistics Expert</a>
+      </div>
+      <div class="faq-list reveal" data-reveal>
+        <p class="eyebrow">Quick Answers</p>
+        <details open><summary>How do I request a freight quote?</summary><p>Send us your origin, destination, cargo dimensions, weight, ready date and preferred delivery timeframe. We will recommend the most suitable option.</p></details>
+        <details><summary>What documents are needed?</summary><p>Most shipments require a commercial invoice and packing list. Depending on the cargo and destination, permits, certificates or customs documents may also be required.</p></details>
+        <details><summary>Can you handle time-sensitive cargo?</summary><p>Yes. We can arrange priority air freight and time-defined road services, then monitor key milestones closely from collection to delivery.</p></details>
+        <details><summary>Do you support customs clearance?</summary><p>Yes. Our team coordinates customs brokerage and document preparation to help avoid unnecessary border delays.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NETWORK ================= -->
+  <section class="section network-section" id="network">
+    <div class="container">
+      <div class="network-intro reveal" data-reveal>
+        <div><p class="eyebrow">Global Reach, Local Control</p><h2 class="section-title">CONNECTED ACROSS<br>THE SUPPLY CHAIN</h2></div>
+        <img class="network-image" src="images/0e02be09fe585bb4361433ccf67137ff.jpg" alt="Cargo ship, truck and aircraft representing integrated logistics" loading="lazy">
+        <p>Our carrier and partner network gives you practical options across major trade lanes, while your Stackly contact stays accountable for the full move.</p>
+      </div>
+      <div class="network-metrics">
+        <div class="reveal" data-reveal><strong>40+</strong><span>Countries Served</span></div>
+        <div class="reveal" data-reveal><strong>1200+</strong><span>Fleet Vehicles</span></div>
+        <div class="reveal" data-reveal><strong>24/7</strong><span>Shipment Monitoring</span></div>
+        <div class="reveal" data-reveal><strong>98%</strong><span>Client Retention</span></div>
+      </div>
+      <div class="network-lanes reveal" data-reveal><span>Asia Pacific</span><i></i><span>Europe</span><i></i><span>North America</span><i></i><span>Middle East</span><i></i><span>Africa</span></div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section testimonial-section" id="testimonials">
+    <div class="container"><div class="section-head center reveal" data-reveal><p class="eyebrow">Trusted by Growing Businesses</p><h2 class="section-title">WHAT OUR CLIENTS VALUE</h2><span class="title-rule center"></span></div>
+      <div class="testimonial-swiper swiper reveal" data-reveal aria-label="Client testimonials">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><figure class="testimonial-card"><blockquote>“Their updates are clear and proactive. We can give our customers accurate delivery information without chasing multiple carriers.”</blockquote><figcaption><strong>Elena Martin</strong><span>Supply Chain Manager, Retail Importer</span></figcaption></figure></div>
+          <div class="swiper-slide"><figure class="testimonial-card"><blockquote>“Stackly helped us combine air and road freight for an urgent launch. The handover between each stage was handled exceptionally well.”</blockquote><figcaption><strong>David Okafor</strong><span>Operations Lead, Manufacturing Group</span></figcaption></figure></div>
+          <div class="swiper-slide"><figure class="testimonial-card"><blockquote>“From quote to customs clearance, there is always someone who understands our shipment and can tell us exactly what is happening.”</blockquote><figcaption><strong>Priya Shah</strong><span>Procurement Director, Industrial Supplier</span></figcaption></figure></div>
+        </div>
+        <div class="testimonial-controls"><button class="testimonial-prev" type="button" aria-label="Previous testimonial">←</button><div class="testimonial-pagination"></div><button class="testimonial-next" type="button" aria-label="Next testimonial">→</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO TEASER ================= -->
+  <section class="section portfolio-section" id="portfolio-teaser">
+    <div class="portfolio-grid">
+      <div class="portfolio-copy container-inline">
+        <p class="eyebrow reveal" data-reveal>Recent Work</p>
+        <h2 class="section-title reveal" data-reveal>OUR PORTFOLIO</h2>
+        <span class="title-rule reveal" data-reveal></span>
+        <p class="reveal" data-reveal>A snapshot of the terminals, vessels and rigs our teams have supported — from container discharge to heavy-lift offshore logistics.</p>
+        <a href="portfolio.html" class="btn btn-primary reveal" data-reveal>View Full Portfolio</a>
+
+        <div class="portfolio-media-a reveal" data-reveal>
+          <img src="images/portfolio-ship.webp" alt="Large container ship loaded with red and green shipping containers sailing near a harbor" loading="lazy">
+          <span class="portfolio-caption">Container Terminal Operations</span>
+        </div>
+      </div>
+
+      <div class="portfolio-media-b reveal" data-reveal>
+        <img src="images/portfolio-rig.webp" alt="Offshore drilling platform under construction in a shipyard with cranes and scaffolding" loading="lazy">
+        <span class="portfolio-caption">Offshore &amp; Heavy-Lift Logistics</span>
+      </div>
+      <div class="portfolio-media-c reveal" data-reveal>
+        <img src="images/portfolio-dock.webp" alt="Bow of a dark cargo vessel docked beside gantry cranes at a container port" loading="lazy">
+        <span class="portfolio-caption">Port &amp; Dockside Handling</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA / THANK YOU ================= -->
+  <section class="cta-banner" id="cta">
+    <div class="cta-media">
+      <video class="cta-video" autoplay muted loop playsinline preload="metadata" poster="images/thankyou-warehouse.webp" aria-label="Stackly warehouse operations in motion">
+        <source src="images/watermarked_preview (1).mp4" type="video/mp4">
+        <img src="images/thankyou-warehouse.webp" alt="Aisle of a warehouse lined with tall shelving stacked full of cardboard storage boxes" loading="lazy">
+      </video>
+      <div class="cta-overlay"></div>
+    </div>
+    <div class="container cta-content">
+      <p class="eyebrow reveal" data-reveal>Ready When You Are</p>
+      <h2 class="section-title reveal" data-reveal>LET'S MOVE YOUR<br>CARGO FORWARD</h2>
+      <span class="title-rule reveal" data-reveal></span>
+      <p class="reveal" data-reveal>Whether it's a single pallet or a full container load, our team is ready to plan the fastest, most cost-effective route for your cargo. Reach out today and get a tailored freight quote within 24 hours.</p>
+      <a href="contact.html" class="btn btn-primary reveal" data-reveal>Get In Touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="images/stackly-mark.webp" alt="Stackly">
+        </span>
+        <span class="brand-name">Stackly</span>
+      </a>
+      <p>A full-service logistics partner moving ocean, air and land freight for businesses across 40+ countries — with the tracking and transparency modern supply chains demand.</p>
+      <div class="footer-social">
+        <a href="404.html" aria-label="Stackly on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="404.html" aria-label="Stackly on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="404.html" aria-label="Stackly on X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3h3l-7.5 8.6L22 21h-6.6l-5.2-6.4L4.2 21H1l8-9.1L2 3h6.7l4.7 5.9L18 3z"/></svg></a>
+        <a href="404.html" aria-label="Stackly on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html#vision">Our Vision</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="resources.html">Cargo Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Ocean &amp; Air Freight</a></li>
+        <li><a href="services.html">Warehousing</a></li>
+        <li><a href="services.html">Land Freight</a></li>
+        <li><a href="services.html">Customs Brokerage</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li>123 Harbor Freight Way, Portside, ST 12345</li>
+        <li><a href="tel:+12345678900">+1 (234) 567-8900</a></li>
+        <li><a href="mailto:hello@stackly.com">hello@stackly.com</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; <span id="year"></span> Stackly. All rights reserved.</p>
+    <p class="footer-note">Design inspired by the Stackly logistics presentation.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

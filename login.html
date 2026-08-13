@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In | Stackly</title>
+<meta name="description" content="Log in to your Stackly client account to track shipments, view invoices and manage your freight.">
+<link rel="icon" href="images/stackly-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">
+    <img src="images/stackly-mark.webp" alt="" width="56" height="56">
+  </div>
+</div>
+
+<a href="index.html" class="auth-back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  Back to site
+</a>
+
+<main class="auth-shell">
+  <div class="auth-media">
+    <img src="images/mission-yard1.webp" alt="Aerial view of a container terminal stacked with rows of colorful shipping containers beside a port crane" loading="eager">
+    <div class="auth-media-overlay"></div>
+    <div class="auth-media-content">
+      <a href="index.html" class="auth-media-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="images/stackly-mark.webp" alt="Stackly">
+        </span>
+        <span class="brand-name">Stackly</span>
+      </a>
+      <blockquote class="auth-media-quote">
+        <p>"Live tracking and a dashboard that actually shows me what's happening — booking freight with Stackly is the first time shipping hasn't felt like a black box."</p>
+        <cite><strong>Jordan Blake</strong> — Blake Freight Co.</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <div class="auth-card-head">
+        <p class="eyebrow">Client Portal</p>
+        <h1>Welcome back</h1>
+        <p>Log in to track shipments, view invoices and manage your account.</p>
+      </div>
+
+      <form class="auth-form" id="loginForm" novalidate>
+        <div class="field">
+          <label for="li-email">Email Address</label>
+          <input type="email" id="li-email" name="email" placeholder="jordan@company.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="li-password">Password</label>
+          <input type="password" id="li-password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+
+        <div class="field-inline">
+          <label class="field-check" style="margin:0;">
+            <input type="checkbox" id="li-remember" name="remember">
+            <span>Remember me</span>
+          </label>
+          <a href="404.html" id="forgotPasswordLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit">Log In</button>
+        <p class="auth-status" id="loginStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="auth-divider">or</div>
+
+      <button type="button" class="btn auth-demo-btn" id="demoLoginBtn">
+        Continue with Demo Account
+      </button>
+
+      <p class="auth-foot">Don't have an account? <a href="signup.html">Sign up free</a></p>
+    </div>
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

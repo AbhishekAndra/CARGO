@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up | Stackly</title>
+<meta name="description" content="Create a free Stackly client account to request quotes, track shipments and manage your freight in one dashboard.">
+<link rel="icon" href="images/stackly-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="signup">
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">
+    <img src="images/stackly-mark.webp" alt="" width="56" height="56">
+  </div>
+</div>
+
+<a href="index.html" class="auth-back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  Back to site
+</a>
+
+<main class="auth-shell">
+  <div class="auth-media">
+    <img src="images/service-sunset-ship.webp" alt="Cargo ship docked at a harbor at sunrise with port cranes silhouetted against the sky" loading="eager">
+    <div class="auth-media-overlay"></div>
+    <div class="auth-media-content">
+      <a href="index.html" class="auth-media-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="images/stackly-mark.webp" alt="Stackly">
+        </span>
+        <span class="brand-name">Stackly</span>
+      </a>
+      <blockquote class="auth-media-quote">
+        <p>"Set up our account in five minutes and had a quote back the same afternoon. The dashboard alone is worth switching for."</p>
+        <cite><strong>Adora Montminy</strong> — Logistics Coordinator</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <div class="auth-card-head">
+        <p class="eyebrow">Client Portal</p>
+        <h1>Create your account</h1>
+        <p>Get a free dashboard to request quotes, track shipments and manage your freight.</p>
+      </div>
+
+      <form class="auth-form" id="signupForm" novalidate>
+        <div class="field">
+          <label for="su-name">Full Name</label>
+          <input type="text" id="su-name" name="fullName" placeholder="Jordan Blake" autocomplete="name" required>
+          <span class="field-error">Please enter your name.</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="su-company">Company <span style="color:var(--muted-2);font-weight:400;">(optional)</span></label>
+            <input type="text" id="su-company" name="company" placeholder="Blake Freight Co." autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="su-phone">Phone <span style="color:var(--muted-2);font-weight:400;">(optional)</span></label>
+            <input type="tel" id="su-phone" name="phone" placeholder="+1 (234) 567-8900" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="su-email">Email Address</label>
+          <input type="email" id="su-email" name="email" placeholder="jordan@company.com" autocomplete="email" required>
+          <span class="field-error">Please enter a valid email.</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="su-password">Password</label>
+            <input type="password" id="su-password" name="password" placeholder="At least 6 characters" autocomplete="new-password" required>
+            <span class="field-error">Password must be at least 6 characters.</span>
+          </div>
+          <div class="field">
+            <label for="su-confirm">Confirm Password</label>
+            <input type="password" id="su-confirm" name="confirmPassword" placeholder="Re-enter password" autocomplete="new-password" required>
+            <span class="field-error">Passwords don't match.</span>
+          </div>
+        </div>
+
+        <label class="field-check">
+          <input type="checkbox" id="su-terms" name="terms">
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary auth-submit">Create Account</button>
+        <p class="auth-status" id="signupStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
