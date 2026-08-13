@@ -35,13 +35,14 @@
     return getUsers().find(function (u) { return u.email.toLowerCase() === normalized; });
   }
 
-  function setSession(user) {
+  function setSession(user, role) {
     sessionStorage.setItem(SESSION_KEY, JSON.stringify({
       fullName: user.fullName,
       company: user.company || "",
       email: user.email,
       phone: user.phone || "",
       memberSince: user.memberSince,
+      role: role || "client",
     }));
   }
 
@@ -118,6 +119,13 @@
         if (avatar) avatar.textContent = initials(session.fullName);
         if (nameEl) {
           nameEl.innerHTML = firstName(session.fullName) + "<span>View Dashboard</span>";
+          // Update dashboard link based on role
+          try {
+            var role = session.role || 'client';
+            if (role === 'admin') nameEl.setAttribute('href', 'admin-dashboard.html');
+            else if (role === 'client') nameEl.setAttribute('href', 'client-dashboard.html');
+            else nameEl.setAttribute('href', 'dashboard.html');
+          } catch (e) {}
         }
       }
     } else {
@@ -262,18 +270,24 @@
         saveUsers(users);
       }
 
-      setSession(user);
+      var roleEl = form.querySelector("#li-role");
+      var role = roleEl ? roleEl.value : "client";
+      setSession(user, role);
       showStatus("Welcome back, " + firstName(user.fullName) + "! Redirecting…", false);
-      setTimeout(function () { window.location.href = "dashboard.html"; }, 500);
+      setTimeout(function () {
+        if (role === 'admin') window.location.href = 'admin-dashboard.html';
+        else if (role === 'client') window.location.href = 'client-dashboard.html';
+        else window.location.href = 'dashboard.html';
+      }, 500);
     });
 
     var demoBtn = document.getElementById("demoLoginBtn");
     if (demoBtn) {
       demoBtn.addEventListener("click", function () {
         var demoUser = ensureDemoUser();
-        setSession(demoUser);
+        setSession(demoUser, 'client');
         showStatus("Signed in with the demo account. Redirecting…", false);
-        setTimeout(function () { window.location.href = "dashboard.html"; }, 500);
+        setTimeout(function () { window.location.href = "client-dashboard.html"; }, 500);
       });
     }
 
@@ -318,6 +332,29 @@
       window.location.href = "login.html";
       return;
     }
+
+    // Enforce role-specific dashboard access: redirect if user on wrong dashboard
+    try {
+      var pagePath = window.location.pathname.split('/').pop();
+      var expectedRole = body.getAttribute('data-role') || null; // 'admin' or 'client' if page indicates
+      var userRole = session.role || 'client';
+
+      if (pagePath === 'admin-dashboard.html' && userRole !== 'admin') {
+        // not authorized for admin, send to client dashboard
+        window.location.href = 'client-dashboard.html';
+        return;
+      }
+      if (pagePath === 'client-dashboard.html' && userRole !== 'client') {
+        // not a client, send to admin dashboard
+        window.location.href = 'admin-dashboard.html';
+        return;
+      }
+      // If a generic dashboard.html is present, route by role
+      if (pagePath === 'dashboard.html') {
+        if (userRole === 'admin') { window.location.href = 'admin-dashboard.html'; return; }
+        if (userRole === 'client') { window.location.href = 'client-dashboard.html'; return; }
+      }
+    } catch (e) { }
 
     // Topbar + welcome
     var welcomeName = document.getElementById("dashWelcomeName");

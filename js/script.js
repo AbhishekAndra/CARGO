@@ -4,14 +4,30 @@
   document.documentElement.classList.add("js");
 
   /* ---------------------------------------------------------
-     Preloader
+     Preloader (robust): hide on load, but also on DOMContentLoaded
+     or after a short timeout to avoid the preloader sticking.
   --------------------------------------------------------- */
-  window.addEventListener("load", function () {
+  (function () {
     var preloader = document.getElementById("preloader");
     if (!preloader) return;
-    preloader.classList.add("is-hidden");
-    setTimeout(function () { preloader.remove(); }, 700);
-  });
+    var hidden = false;
+
+    function hidePreloader() {
+      if (hidden) return;
+      hidden = true;
+      preloader.classList.add("is-hidden");
+      setTimeout(function () { try { preloader.remove(); } catch (e) {} }, 700);
+    }
+
+    window.addEventListener("load", hidePreloader);
+    document.addEventListener("DOMContentLoaded", function () {
+      // If load is slow, reveal the page after DOM ready so users aren't stuck.
+      setTimeout(hidePreloader, 300);
+    });
+
+    // Absolute safety: remove preloader after 3 seconds if still visible
+    setTimeout(hidePreloader, 3000);
+  })();
 
   /* ---------------------------------------------------------
      Header: scroll state + mobile nav toggle

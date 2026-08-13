@@ -40,7 +40,16 @@
 html{ scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 body,h1,h2,h3,h4,p,ul,ol,li,figure{ margin: 0; padding: 0; }
 ul,ol{ list-style: none; }
-img{ max-width: 100%; display: block; }
+img{ max-width: 100%; display: block; height: auto; }
+
+/* Ensure images preserve intended aspect ratio and don't cause layout shift */
+.team-photo img{ aspect-ratio: 1 / 1; width: 100%; height: auto; object-fit: cover; }
+.portfolio-media-left img, .portfolio-media-a img, .portfolio-media-b img, .portfolio-media-c img{
+  width: 100%; height: auto; object-fit: cover; aspect-ratio: 16 / 9;
+}
+img.projects-img--a, img.projects-img--b{ width: 100%; height: auto; object-fit: cover; aspect-ratio: 16 / 10; }
+.services-media-item img{ width: 100%; height: auto; object-fit: cover; aspect-ratio: 16 / 9; }
+.about-img{ width: 100%; height: auto; object-fit: cover; }
 a{ color: inherit; text-decoration: none; }
 button{ font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 input,textarea{ font: inherit; color: inherit; }
@@ -657,17 +666,25 @@ body{
   grid-template-rows: auto auto;
   gap: 4px;
   align-items: stretch;
+  grid-auto-flow: dense;
 }
 .portfolio-copy{
-  grid-column: 1 / 2; grid-row: 1 / 3;
+  grid-column: 1 / 2; grid-row: 1 / 2;
   display: flex; flex-direction: column; justify-content: center;
   padding: 60px 0;
 }
 .portfolio-copy p{ margin: 22px 0 30px; }
+.portfolio-highlights{ display: flex; flex-direction: column; gap: 16px; max-width: 560px; margin-bottom: 30px; }
+.portfolio-highlights div{ padding-left: 18px; border-left: 3px solid var(--orange-500); }
+.portfolio-highlights strong{ display: block; font-family: var(--font-head); font-size: 1rem; color: var(--white); margin-bottom: 4px; }
+.portfolio-highlights span{ color: var(--muted); font-size: .9rem; line-height: 1.5; }
 .portfolio-media-a, .portfolio-media-b, .portfolio-media-c{
   position: relative; overflow: hidden; min-height: 340px;
 }
-.portfolio-media-a{ margin-top: 40px; }
+.portfolio-media-left{ position: relative; overflow: hidden; min-height: 340px; grid-column: 1 / 2; grid-row: 2 / 3; }
+.portfolio-media-a{ margin-top: 0; grid-column: 2 / 3; grid-row: 1 / 2; }
+.portfolio-media-b{ grid-column: 3 / 4; grid-row: 1 / 2; }
+.portfolio-media-c{ grid-column: 2 / 4; grid-row: 2 / 3; }
 .portfolio-media-a img, .portfolio-media-b img, .portfolio-media-c img{
   width: 100%; height: 100%; object-fit: cover; min-height: 340px;
   transition: transform .7s var(--ease);
@@ -978,6 +995,37 @@ body{
   .page-banner{ min-height: 38vh; }
 }
 
+/* Additional responsive fixes to ensure consistent stacking and prevent gaps/overflow */
+@media (max-width: 1100px){
+  .portfolio-grid{ grid-template-columns: 1fr; grid-auto-flow: row; gap: 16px; }
+  .portfolio-copy{ grid-column: 1 / -1; grid-row: auto; padding: 40px 32px; }
+  .portfolio-media-left, .portfolio-media-a, .portfolio-media-b, .portfolio-media-c{
+    grid-column: 1 / -1; grid-row: auto; min-height: 220px; margin: 0; overflow: hidden;
+  }
+  .portfolio-media-left img, .portfolio-media-a img, .portfolio-media-b img, .portfolio-media-c img{
+    min-height: 160px; height: auto; object-fit: cover;
+  }
+}
+
+@media (max-width: 860px){
+  /* ensure header/nav don't create horizontal scroll and nav toggle is visible */
+  .site-header{ height: var(--header-h); }
+  .main-nav{ left: 0; right: 0; }
+  .container{ padding-left: 20px; padding-right: 20px; }
+}
+
+@media (max-width: 420px){
+  .portfolio-media-left img, .portfolio-media-a img, .portfolio-media-b img, .portfolio-media-c img{
+    min-height: 120px; height: auto;
+  }
+  .hero{ min-height: 60vh; }
+}
+
+/* Large screen safety: cap media min-height to avoid excessive stretching */
+@media (min-width: 1600px){
+  .portfolio-media-left, .portfolio-media-a, .portfolio-media-b, .portfolio-media-c{ min-height: 420px; }
+}
+
 /* =========================================================
    Auth pages (login / signup)
 ========================================================= */
@@ -1052,6 +1100,23 @@ body[data-page="login"] .auth-media-content{ padding-top: 112px; }
   background: var(--panel); border: 1px solid var(--line); color: var(--ink);
 }
 .auth-demo-btn:hover{ border-color: rgba(232,160,72,.5); background: var(--panel-2); transform: translateY(-2px); }
+
+/* Larger login controls (increase select and button size while preserving design) */
+.auth-form .field input[type="email"], .auth-form .field input[type="password"], .auth-form .field textarea, .auth-form select {
+  height: 56px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+.auth-form select{ -webkit-appearance: menulist; appearance: menulist; }
+.auth-submit{ padding: 18px 36px; font-size: 1.05rem; border-radius: 12px; }
+
+@media (max-width: 560px){
+  .auth-form .field input[type="email"], .auth-form .field input[type="password"], .auth-form select {
+    height: 52px; padding: 12px 14px; font-size: .98rem;
+  }
+  .auth-submit{ padding: 16px 26px; font-size: 1rem; }
+}
 
 .auth-foot{ margin-top: 28px; text-align: center; font-size: .92rem; color: var(--muted); }
 .auth-foot a{ color: var(--orange-400); font-weight: 600; }

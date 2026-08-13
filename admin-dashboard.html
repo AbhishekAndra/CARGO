@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Stackly</title>
+<meta name="description" content="Stackly admin dashboard — manage accounts and view system activity.">
+<link rel="icon" href="images/stackly-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard" data-role="admin" class="dash-body">
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">
+    <img src="images/stackly-mark.webp" alt="" width="56" height="56">
+  </div>
+</div>
+
+<div class="dash-overlay" id="dashOverlay"></div>
+
+<div class="dash-shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="images/stackly-mark.webp" alt="Stackly">
+      </span>
+      <span class="brand-name">Stackly</span>
+    </a>
+
+    <nav class="dash-nav" aria-label="Dashboard">
+      <a href="admin-dashboard.html" class="dash-nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Overview
+      </a>
+      <a href="#users" class="dash-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Manage Users
+      </a>
+      <a href="#activity" class="dash-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        System Activity
+      </a>
+      <div class="dash-nav-divider"></div>
+      <a href="index.html" class="dash-nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Back to Website
+      </a>
+    </nav>
+
+    <div class="dash-sidebar-foot">
+      <button class="dash-logout-btn js-logout" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Log Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div>
+          <h1>Admin Console — <span id="dashWelcomeName">there</span></h1>
+          <p class="dash-topbar-sub">Overview of system activity and user management.</p>
+        </div>
+      </div>
+
+      <div class="dash-topbar-right">
+        <div class="dash-user-chip">
+          <div class="header-user-avatar" id="dashUserAvatar">AD</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:600;color:var(--white);line-height:1.3;" id="dashUserName">—</div>
+            <div style="font-size:.72rem;color:var(--muted-2);" id="dashUserCompany">Admin</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-content">
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
+            <span class="stat-trend up">Live</span>
+          </div>
+          <div class="stat-value" id="statActive">0</div>
+          <div class="stat-label">Active Shipments</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <span class="stat-trend up">+12%</span>
+          </div>
+          <div class="stat-value" id="statTransit">0</div>
+          <div class="stat-label">In Transit</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+            <span class="stat-trend up">+4%</span>
+          </div>
+          <div class="stat-value" id="statDelivered">0</div>
+          <div class="stat-label">Delivered</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <span class="stat-trend down">Review</span>
+          </div>
+          <div class="stat-value" id="statPending">0</div>
+          <div class="stat-label">Pending Quotes</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <!-- Left column -->
+        <div>
+          <div class="dash-panel" id="activity" style="margin-bottom:24px;">
+            <div class="dash-panel-head">
+              <h2>Recent System Activity</h2>
+              <a href="#">View logs</a>
+            </div>
+            <p style="color:var(--muted);">Recent administrative events and system notifications appear here.</p>
+          </div>
+
+          <div class="dash-panel" id="users">
+            <div class="dash-panel-head"><h2>Users</h2></div>
+            <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">Manage user accounts, roles and access.</p>
+            <div style="overflow-x:auto;"><table class="dash-table"><thead><tr><th>User</th><th>Email</th><th>Company</th><th>Role</th></tr></thead><tbody><tr><td>Jordan Blake</td><td>demo@stackly.com</td><td>Blake Freight Co.</td><td>Client</td></tr></tbody></table></div>
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div>
+          <div class="dash-panel" id="profile" style="margin-bottom:24px;">
+            <div class="profile-summary">
+              <div class="profile-avatar" id="profileAvatar">AD</div>
+              <h3 id="profileName">—</h3>
+              <span id="profileCompany">Admin</span>
+            </div>
+            <dl class="profile-meta">
+              <div><dt>Email</dt><dd id="profileEmail">—</dd></div>
+              <div><dt>Phone</dt><dd id="profilePhone">—</dd></div>
+              <div><dt>Client Since</dt><dd id="profileSince">—</dd></div>
+            </dl>
+          </div>
+
+          <div class="dash-panel" style="margin-bottom:24px;">
+            <div class="dash-panel-head"><h2>Quick Actions</h2></div>
+            <div class="quick-actions">
+              <a href="contact.html" class="quick-action">Manage Support</a>
+              <a href="services.html" class="quick-action">Manage Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
