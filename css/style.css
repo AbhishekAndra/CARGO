@@ -197,10 +197,34 @@ body{
 .nav-toggle{
   display: none; flex-direction: column; justify-content: center; gap: 5px;
   width: 40px; height: 40px; flex-shrink: 0;
+  padding: 8px 7px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 .nav-toggle span{
   display: block; width: 24px; height: 2px; background: var(--white);
-  transition: transform .35s var(--ease), opacity .25s ease;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.12);
+  transition: transform .35s var(--ease), opacity .25s ease, background .25s ease;
+}
+.nav-toggle.is-open{
+  background: rgba(232,160,72,.18);
+  border-color: rgba(232,160,72,.55);
+  box-shadow: 0 0 0 1px rgba(232,160,72,.2), 0 8px 18px -10px rgba(0,0,0,.5);
+}
+.site-header.is-scrolled .nav-toggle{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.2);
+  box-shadow: 0 8px 18px -10px rgba(0,0,0,.5);
+}
+.site-header.is-scrolled .nav-toggle.is-open{
+  background: rgba(232,160,72,.25);
+  border-color: rgba(232,160,72,.8);
+}
+.site-header.is-scrolled .nav-toggle span{
+  background: rgba(255,255,255,.98);
 }
 .nav-toggle.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
 .nav-toggle.is-open span:nth-child(2){ opacity: 0; }
